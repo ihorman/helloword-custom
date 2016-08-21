@@ -77,7 +77,25 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>            
+            </plugin>
+                <plugins>
+      <plugin>
+        <artifactId>maven-invoker-plugin</artifactId>
+        <version>2.0.0</version>
+        <configuration>
+          <debug>true</debug>
+          <projectsDirectory>src</projectsDirectory>
+          <postBuildHookScript>run.sh</postBuildHookScript>
+        </configuration>
+        <executions>
+          <execution>
+            <id>integration-test</id>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+       </executions>
+      </plugin>
         </plugins>
     </build>
 
